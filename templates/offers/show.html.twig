@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offers{% endblock %}
+
+{% block body %}
+    <h1>Offers</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offer.id }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ offer.reference }}</td>
+            </tr>
+            <tr>
+                <th>Client</th>
+                <td>{{ offer.client }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offer.description }}</td>
+            </tr>
+            <tr>
+                <th>IsActivated</th>
+                <td>{{ offer.isActivated ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>OfferNotes</th>
+                <td>{{ offer.offerNotes }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ offer.title }}</td>
+            </tr>
+            <tr>
+                <th>JobType</th>
+                <td>{{ offer.jobType }}</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ offer.location }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ offer.category }}</td>
+            </tr>
+            <tr>
+                <th>ExpirationDate</th>
+                <td>{{ offer.expirationDate ? offer.expirationDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('offers_index') }}">back to list</a>
+
+    <a href="{{ path('offers_edit', {'id': offer.id}) }}">edit</a>
+
+    {{ include('offers/_delete_form.html.twig') }}
+{% endblock %}
